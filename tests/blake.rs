@@ -4,7 +4,7 @@ use blake2::{digest::FixedOutput, Blake2bMac};
 use hex_literal::hex;
 use blake2b_rs::Blake2bBuilder;
 use digest::consts::U32;
-use smt::{blake2b::{Blake2bMac256, Blake2bHasher as SMTBlake2b}, traits::Hasher, h256::H256};
+use verify_smt::{blake2b::{Blake2bMac256, Blake2bHasher as SMTBlake2b}, traits::Hasher, h256::H256};
 
 #[test]
 #[rustfmt::skip]

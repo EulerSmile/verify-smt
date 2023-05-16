@@ -1,4 +1,4 @@
-use smt::{
+use verify_smt::{
     blake2b::Blake2bHasher,
     merkle_proof::CompiledMerkleProof,
     h256::H256,
