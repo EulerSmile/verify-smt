@@ -1,6 +1,6 @@
-use hex_literal::hex;
-use blake2b_rs::Blake2bBuilder;
 use blake2_rfc::blake2b::Blake2b;
+use blake2b_rs::Blake2bBuilder;
+use hex_literal::hex;
 
 #[test]
 #[rustfmt::skip]

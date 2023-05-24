@@ -1,7 +1,7 @@
 use crate::{
     error::Error,
-    tree::{BranchKey, BranchNode},
     h256::H256,
+    tree::{BranchKey, BranchNode},
 };
 
 /// Trait for customize hash function

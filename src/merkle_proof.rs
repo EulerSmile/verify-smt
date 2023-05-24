@@ -1,8 +1,8 @@
 use crate::{
     error::{Error, Result},
     h256::H256,
-    merge::{merge, MergeValue},
-    traits::Hasher, MAX_STACK_SIZE,
+    MAX_STACK_SIZE,
+    merge::{merge, MergeValue}, traits::Hasher,
 };
 
 /// An structure optimized for verify merkle proof

@@ -1,8 +1,10 @@
-use crate::{
-    merge::MergeValue,
-    h256::H256,
-};
 use core::cmp::Ordering;
+
+use crate::{
+    h256::H256,
+    merge::MergeValue,
+};
+
 /// The branch key
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 pub struct BranchKey {
@@ -21,6 +23,7 @@ impl PartialOrd for BranchKey {
         Some(self.cmp(other))
     }
 }
+
 impl Ord for BranchKey {
     fn cmp(&self, other: &Self) -> Ordering {
         match self.height.cmp(&other.height) {

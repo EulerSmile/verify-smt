@@ -1,9 +1,10 @@
+use hex;
+
 use verify_smt::{
     blake2b::Blake2bHasher,
-    merkle_proof::CompiledMerkleProof,
     h256::H256,
+    merkle_proof::CompiledMerkleProof,
 };
-use hex;
 
 #[test]
 fn test_verify_proof() {
@@ -31,7 +32,7 @@ fn test_verify_proof() {
 fn verify_proof(proof: &str, root: &str, leaves: &Vec<(&str, &str)>) {
     let compiled_proof = hex::decode(proof).unwrap();
     let root: [u8; 32] = hex::decode(root).unwrap().try_into().expect("failed");
-    let leaves = leaves.into_iter().map(|l|{
+    let leaves = leaves.into_iter().map(|l| {
         let left: [u8; 32] = hex::decode(l.0).unwrap().try_into().expect("failed");
         let right: [u8; 32] = hex::decode(l.1).unwrap().try_into().expect("failed");
         (H256::from(left), H256::from(right))
