@@ -1,6 +1,6 @@
 use crate::h256::H256;
 
-pub type Result<T> = ::core::result::Result<T, Error>;
+pub type Result<T> = core::result::Result<T, Error>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Error {

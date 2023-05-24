@@ -27,14 +27,14 @@ fn blake2b_without_key() {
     const PERSONALIZATION: &[u8] = b"sparsemerkletree";
     let mut ctx = Blake2b::new(32);
     ctx.update(PERSONALIZATION);
-    let out: [u8; 32] = ctx.finalize().as_bytes().try_into().expect("slice with incorrect length");
-    println!("blake2-rfc: {:?}", out);
+    let out0: [u8; 32] = ctx.finalize().as_bytes().try_into().expect("slice with incorrect length");
+    println!("blake2-rfc: {:?}", out0);
     // [20, 40, 150, 3, 106, 99, 194, 240, 215, 8, 239, 35, 138, 184, 222, 228, 253, 91, 178, 51, 19, 207, 89, 164, 252, 54, 49, 3, 232, 160, 39, 158]
 
-    let mut out = [0u8; 32];
+    let mut out1 = [0u8; 32];
     let mut hasher = Blake2bBuilder::new(32).build();
     hasher.update(PERSONALIZATION);
-    hasher.finalize(&mut out);
-    println!("blake2b-rs: {:?}", out);
+    hasher.finalize(&mut out1);
+    println!("blake2b-rs: {:?}", out1);
     // [20, 40, 150, 3, 106, 99, 194, 240, 215, 8, 239, 35, 138, 184, 222, 228, 253, 91, 178, 51, 19, 207, 89, 164, 252, 54, 49, 3, 232, 160, 39, 158]
 }
