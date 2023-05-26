@@ -12,6 +12,10 @@ impl Default for Blake2bHasher {
 }
 
 impl Hasher for Blake2bHasher {
+    fn write_bytes(&mut self, b: &[u8]) {
+        self.0.update(b);
+    }
+
     fn write_byte(&mut self, b: u8) {
         self.0.update(&[b][..]);
     }
