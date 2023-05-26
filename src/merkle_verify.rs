@@ -7,7 +7,7 @@ use crate::merkle_proof::CompiledMerkleProof;
 pub struct MerkleVerify;
 
 impl MerkleVerify {
-    pub fn verify_proof(proof: &str, root: &str, leaves: &Vec<(&str, &str)>) {
+    pub fn verify_proof(proof: &str, root: &str, leaves: &Vec<(&str, &str)>) -> bool {
         let compiled_proof = hex::decode(proof).unwrap();
         let root: [u8; 32] = hex::decode(root).unwrap().try_into().expect("failed");
         let leaves = leaves.into_iter().map(|l| {
@@ -19,8 +19,8 @@ impl MerkleVerify {
         let proof = CompiledMerkleProof(compiled_proof);
         let root = H256::from(root);
         let result = proof.verify::<Blake2bHasher>(&root, leaves).unwrap();
-        println!("result: {}", result);
-        assert!(result);
+
+        return result;
     }
 }
 
