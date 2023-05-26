@@ -1,14 +1,8 @@
-// use blake2::{digest::FixedOutput, Blake2b};
-// use digest::{consts::U32, Update};
 use blake2_rfc::blake2b::Blake2b;
 
 use crate::traits::Hasher;
 
-// pub type Blake2b256 = Blake2b<U32>;
-
 pub struct Blake2bHasher(Blake2b);
-
-// const PERSONALIZATION: &[u8] = b"sparsemerkletree";
 
 impl Default for Blake2bHasher {
     fn default() -> Self {
